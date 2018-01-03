@@ -1,0 +1,52 @@
+
+buildscript {
+    repositories {
+//        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        jcenter()
+//        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
+}
+
+allprojects {
+    repositories {
+//        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+//        maven {
+//            url 'https://maven.google.com'
+//        }
+        jcenter()
+//        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    // Sdk and tools
+    minSdkVersion = 16
+    targetSdkVersion = 23
+    compileSdkVersion = 23
+    buildToolsVersion = '26.0.2'
+
+    // App dependencies
+    supportLibraryVersion = "23.4.0"
+    supportv4LibraryVersion = "25.1.1"
+    retrofitVersion = "2.1.0"
+    retrofitAdapterRxjavaVersion = "2.0.1"
+    retrofitConverterVersion = "2.0.0-beta4"
+    okhttpVersion = "3.2.0"
+    daggerVersion = "2.0.2"
+    butterknifeVersion = "8.+"
+    rxandroidVersion = "1.1.0"
+    rxjavaVersion = "1.1.5"
+    eventbusVersion = "3.0.0"
+    PhotoViewVersion = "1.2.4"
+    tagsoupVersion = "1.2.1"
+    multidexVersion = "1.0.1"
+    leakcanaryVersion = "1.5"
+}

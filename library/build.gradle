@@ -1,0 +1,63 @@
+apply plugin: "com.android.library"
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ["libs"]
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: "libs", include: ["*.jar"])
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:support-v4:$rootProject.supportv4LibraryVersion"
+    // Net
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitAdapterRxjavaVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitConverterVersion"
+    compile "com.squareup.retrofit2:converter-scalars:$rootProject.retrofitConverterVersion"
+    compile "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
+    // Annotation
+    compile "com.google.dagger:dagger:$rootProject.daggerVersion"
+    compile "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
+    // Rx
+    compile "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
+    compile "io.reactivex:rxjava:$rootProject.rxjavaVersion"
+    // Bus
+    compile "org.greenrobot:eventbus:$rootProject.eventbusVersion"
+
+    compile "com.commit451:PhotoView:$rootProject.PhotoViewVersion"
+    compile "org.ccil.cowan.tagsoup:tagsoup:$rootProject.tagsoupVersion"
+    compile "com.android.support:multidex:$rootProject.multidexVersion"
+
+    // leakcanary
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
+    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
+}
